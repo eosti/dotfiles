@@ -26,7 +26,7 @@ do
 
 	for i in $(find "$(pwd)" -name "*.m4a" -o -name "*.mp3" -o -name "*.aiff" -o -name "*.flac" -type f)
 	do 
-		echo "$i" >> "${PWD##*/}.m3u"
+		echo "$i" >> "_${PWD##*/}.m3u"
 	done
 	mv "_${PWD##*/}.m3u" "$PLAYLIST_DIR"
 done
