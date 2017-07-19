@@ -9,23 +9,26 @@
 #!/bin/bash
 export IFS=$'\n'
 
-MUSIC_DIR=~/Music/beets
-PLAYLIST_DIR=~/.mpd/playlists
+MUSIC_DIR=~/Music/beets/
+PLAYLIST_DIR=~/.mpd/playlists/
 
-rm "$PLAYLIST_DIR"
-mkdir "$PLAYLIST DIR"
 cd "$MUSIC_DIR"
+
+for file in "$PLAYLIST_DIR"/_*.m3u
+do
+	rm $file
+done
 
 for h in $(find "$(pwd)" -type d -mindepth 2)
 do
 	cd $(echo $h | tr -d '\r')
-	touch "${PWD##*/}.m3u"
+	touch "_${PWD##*/}.m3u"
 
 	for i in $(find "$(pwd)" -name "*.m4a" -o -name "*.mp3" -o -name "*.aiff" -o -name "*.flac" -type f)
 	do 
 		echo "$i" >> "${PWD##*/}.m3u"
 	done
-	mv "${PWD##*/}.m3u" "$PLAYLIST_DIR"
+	mv "_${PWD##*/}.m3u" "$PLAYLIST_DIR"
 done
 
 echo M3Us created from "$MUSIC_DIR" and put into "$PLAYLIST_DIR"!
