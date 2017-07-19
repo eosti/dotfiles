@@ -1,8 +1,10 @@
 directory: ~/Music/beets                   # Where does the music live?
 library: ~/Music/beets/musiclibrary.blb  # Where does the beets database live?
+
 import:
     move: yes                              # Move your files to ~/Music/beets after import
-plugins: lastgenre fetchart ftintitle mpdupdate smartplaylist random embedart
+
+plugins: lastgenre fetchart ftintitle mpdupdate smartplaylist random embedart duplicates missing
 embedart:
     auto: yes                              # Embed album art in the music files
 ui:
@@ -10,3 +12,4 @@ ui:
 mpdupdate:
     host: localhost
     port: 6600
+
