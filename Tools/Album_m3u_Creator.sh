@@ -24,7 +24,7 @@ do
 	cd $(echo $h | tr -d '\r')
 	touch "_${PWD##*/}.m3u"
 
-	for i in $(find "$(pwd)" -name "*.m4a" -o -name "*.mp3" -o -name "*.aiff" -o -name "*.flac" -type f)
+	for i in $(find  -s "$(pwd)" -name "*.m4a" -o -name "*.mp3" -o -name "*.aiff" -o -name "*.flac" -type f)
 	do 
 		echo "$i" >> "_${PWD##*/}.m3u"
 	done
