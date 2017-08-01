@@ -11,6 +11,9 @@
     ~/.config/beets/config.yaml: beets-config.yaml
     ~/.mpdconf: mpdconf
     ~/.ncmpcpp/config: ncmpcpp-config
+    ~/.vim: vim
+    ~/.tmux.conf: tmux.conf
+    ~/.vimrc: vimrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
