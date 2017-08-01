@@ -42,8 +42,8 @@
 #   (this is all commented out as I use Mac Terminal Profiles)
 #   from http://osxdaily.com/2012/02/21/add-color-to-the-terminal-in-mac-os-x/
 #   ------------------------------------------------------------
-#   export CLICOLOR=1
-#   export LSCOLORS=ExFxBxDxCxegedabagacad
+   export CLICOLOR=1
+   export LSCOLORS=ExFxBxDxCxegedabagacad
 
 
 #   -----------------------------
@@ -76,6 +76,9 @@ mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and ju
 trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
+
+alias pipes.sh='pipes.sh -p 5 -t 3 -R'	    #Pipes.sh config
+alias clock='tty-clock -cstrx -C 6'	    #TTY-Clock config
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
