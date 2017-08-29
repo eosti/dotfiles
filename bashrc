@@ -21,7 +21,18 @@
 
 #   Change Prompt
 #   ------------------------------------------------------------
-    export PS1="[\033[34m\u\033[31m@\033[36m\h\033[31m:\033[32m\w] \\033[31m$\033[m "
+   # export PS1="[\\033[34m\]\u\033[31m\]@\033[36m\]\h\033[31m\]:\033[32m\]\w] \033[31m\]$ \033[39m\]"
+	black=$(tput setaf 0)	#ANSI 30m
+	red=$(tput setaf 1)		#ANSI 31m
+	green=$(tput setaf 2)	#ANSI 32m
+   	yellow=$(tput setaf 3)	#ANSI 33m
+   	blue=$(tput setaf 4)	#ANSI 34m
+   	magenta=$(tput setaf 5)	#ANSI 35m
+   	cyan=$(tput setaf 6)	#ANSI 36m
+   	white=$(tput setaf 7)	#ANSI 37m
+   	reset=$(tput sgr0)		#ANSI 0m
+
+	export PS1="\[$magenta\][\[$blue\]\u\[$red\]@\[$cyan\]\h\[$red\]:\[$green\]\w\[$magenta\]] \[$red\]$ \[$reset\]"
     export PS2="| => "
 
 #   Set Paths

@@ -8,6 +8,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/nerdtree'
 Plug 'vimwiki/vimwiki'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -35,11 +37,15 @@ set incsearch     " show search matches as you type
 
 filetype plugin on
 syntax on
-
-map <C-n> :NERDTreeToggle<CR> " nerdtree mapping
+"NerdTree maps to :n
+map <C-n> :NERDTreeToggle<CR>
+"Airline Powerline config
+let g:airline_powerline_fonts = 1 
 """"""""""""""""
 "  APPEARENCE  "
 """"""""""""""""
+
+let g:airline_theme='minimalist'
 
 set background=dark
 colorscheme gruvbox
