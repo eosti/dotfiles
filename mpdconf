@@ -10,13 +10,13 @@ music_directory "~/Music/beets"        # Beets music library folder
     follow_inside_symlinks  "yes"
 
 
-audio_output {
-    type       "ao"
-    driver     "macosx"
-    name       "My Mac Device"
-    mixer_type "software"
-    options    "buffer_time=400"
-}
+#audio_output {
+    #type       "ao"
+    #driver     "macosx"
+   # name       "reid"
+  #  mixer_type "software"
+ #   options    "buffer_time=400"
+#}
 
 #    audio_output {
  #   type "fifo"

@@ -32,7 +32,7 @@
    	white=$(tput setaf 7)	#ANSI 37m
    	reset=$(tput sgr0)		#ANSI 0m
 
-	export PS1="\[$magenta\][\[$blue\]\u\[$red\]@\[$cyan\]\h\[$red\]:\[$green\]\w\[$magenta\]] \[$red\]$ \[$reset\]"
+	export PS1="\[$red\][\[$blue\]\u\[$red\]@\[$cyan\]\h\[$red\]:\[$green\]\w\[$red\]] \[$red\]$ \[$reset\]"
     export PS2="| => "
 
 #   Set Paths
