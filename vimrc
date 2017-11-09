@@ -8,6 +8,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/nerdtree'
 Plug 'vimwiki/vimwiki'
+Plug 'xolox/vim-notes'
+Plug 'xolox/vim-misc'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
