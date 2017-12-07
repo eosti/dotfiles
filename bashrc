@@ -30,9 +30,12 @@
    	cyan=$(tput setaf 6)	#ANSI 36m
    	white=$(tput setaf 7)	#ANSI 37m
    	reset=$(tput sgr0)		#ANSI 0m
+	veryred=$(tput bold && tput setaf 2)
 
 	export PS1="\[$red\][\[$blue\]\u\[$red\]@\[$cyan\]\h\[$red\]:\[$green\]\w\[$yellow\]\$git_branch\[$red\]] \[$red\]$ \[$reset\]"
     export PS2="| => "
+
+    export SUDO_PS1="\[$veryred\]{\u@\h:\w} # \[$reset\]"
 
 #PS1 Git Implementation
 #	------------------------------------------------------------
