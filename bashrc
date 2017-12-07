@@ -21,7 +21,6 @@
 
 #   Change Prompt
 #   ------------------------------------------------------------
-   # export PS1="[\\033[34m\]\u\033[31m\]@\033[36m\]\h\033[31m\]:\033[32m\]\w] \033[31m\]$ \033[39m\]"
 	black=$(tput setaf 0)	#ANSI 30m
 	red=$(tput setaf 1)		#ANSI 31m
 	green=$(tput setaf 2)	#ANSI 32m
@@ -32,10 +31,15 @@
    	white=$(tput setaf 7)	#ANSI 37m
    	reset=$(tput sgr0)		#ANSI 0m
 
-	export PS1="\[$red\][\[$blue\]\u\[$red\]@\[$cyan\]\h\[$red\]:\[$green\]\w\[$red\]] \[$red\]$ \[$reset\]"
+	export PS1="\[$red\][\[$blue\]\u\[$red\]@\[$cyan\]\h\[$red\]:\[$green\]\w\[$yellow\]\$git_branch\[$red\]] \[$red\]$ \[$reset\]"
     export PS2="| => "
 
-#   Set Paths
+#PS1 Git Implementation
+#	------------------------------------------------------------
+	export GITAWAREPROMPT=~/.bash/git-aware-prompt
+	source "${GITAWAREPROMPT}/prompt.sh"
+
+#  Set Paths
 #   ------------------------------------------------------------
     export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
     export PATH=$PATH:Users/reid/go/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:PATH
@@ -54,7 +58,8 @@
 #   from http://osxdaily.com/2012/02/21/add-color-to-the-terminal-in-mac-os-x/
 #   ------------------------------------------------------------
    export CLICOLOR=1
-   export LSCOLORS=ExFxBxDxCxegedabagacad
+   export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+#  export LSCOLORS=ExFxBxDxCxegedabagacad
 
 
 #   -----------------------------
@@ -67,6 +72,7 @@ alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
 alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 #cd() { builtin cd "$@"; ll; }               # Always list directory contents upon 'cd'
+alias sudo='sudo '							# Workaround for 'sudo [alias]'
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
 alias ..='cd ../'                           # Go back 1 directory level
 alias ...='cd ../../'                       # Go back 2 directory levels
@@ -83,6 +89,7 @@ alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable 
 alias show_options='shopt'                  # Show_options: display bash options settings
 alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
 alias cic='set completion-ignore-case On'   # cic:          Make tab-completion case-insensitive
+alias spoof='spoof-mac.py'					# Shortcut for spoof-mac
 mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
 trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
@@ -178,3 +185,7 @@ alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\
 #   ---------------------------------------
 
 export PATH="/usr/local/sbin:$PATH"
+
+git_branch() {
+	  git branch 2>/dev/null | grep '^*' | colrm 1 2
+  }

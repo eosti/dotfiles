@@ -14,6 +14,7 @@
     ~/.vim: vim
     ~/.tmux.conf: tmux.conf
     ~/.vimrc: vimrc
+    ~/.bash: bash
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

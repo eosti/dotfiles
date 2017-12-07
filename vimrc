@@ -43,6 +43,9 @@ syntax on
 map <C-n> :NERDTreeToggle<CR>
 "Airline Powerline config
 let g:airline_powerline_fonts = 1 
+
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd BufRead,BufNewFile *.wiki setlocal spell
 """"""""""""""""
 "  APPEARENCE  "
 """"""""""""""""
