@@ -44,8 +44,9 @@
 
 #  Set Paths
 #   ------------------------------------------------------------
+	export ANDROID_HOME=/Users/$USER/Library/Android/sdk
     export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
-    export PATH=$PATH:Users/reid/go/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:PATH
+    export PATH=$PATH:Users/reid/go/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 #   Set Default Editor (change 'Nano' to the editor of your choice)
 #   ------------------------------------------------------------
