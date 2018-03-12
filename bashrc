@@ -100,7 +100,9 @@ ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in Ma
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
 
 alias pipes.sh='pipes.sh -p 5 -t 3 -R'	    #Pipes.sh config
-alias clock='tty-clock -cstrx -C 6'	    #TTY-Clock config
+alias clock='tty-clock -cstrx -C 6'	   		#TTY-Clock config
+alias damnit='sudo !!'
+alias fucking='sudo'
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------

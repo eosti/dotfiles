@@ -4,7 +4,7 @@ library: ~/Music/beets/musiclibrary.blb  # Where does the beets database live?
 import:
     move: yes                              # Move your files to ~/Music/beets after import
 
-plugins: lastgenre fetchart ftintitle mpdupdate smartplaylist random embedart duplicates missing chroma fromfilename badfiles scrub
+plugins: lastgenre fetchart convert ftintitle mpdupdate smartplaylist random embedart duplicates missing chroma fromfilename badfiles scrub
 embedart:
     auto: yes                              # Embed album art in the music files
 ui:
