@@ -101,7 +101,7 @@ alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file
 
 alias pipes.sh='pipes.sh -p 5 -t 3 -R'	    #Pipes.sh config
 alias clock='tty-clock -cstrx -C 6'	   		#TTY-Clock config
-alias damnit='sudo !!'
+alias damnit='sudo !-1'
 alias fucking='sudo'
 
 #   lr:  Full Recursive Directory Listing
