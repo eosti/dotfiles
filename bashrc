@@ -105,17 +105,10 @@ alias clock='tty-clock -cstrx -C 6'	   		#TTY-Clock config
 alias damnit='sudo !!'
 alias fucking='sudo'
 alias t='todolist'
-
-#   lr:  Full Recursive Directory Listing
-#   ------------------------------------------
-alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
-
-#   mans:   Search manpage given in agument '1' for term given in argument '2' (case insensitive)
-#           displays paginated result with colored search terms and two lines surrounding each hit.            Example: mans mplayer codec
-#   --------------------------------------------------------------------
-    mans () {
-        man $1 | grep -iC2 --color=always $2 | less
-    }
+alias tl='todolist list by project'
+alias ta='todolist add'
+alias tc='todolist complete'
+alias td='todolist ac'
 
 #   showa: to remind yourself of an alias (given some part of it)
 #   ------------------------------------------------------------
