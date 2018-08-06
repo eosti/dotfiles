@@ -48,6 +48,7 @@
     export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
     export PATH=$PATH:/Users/$USER/go/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
+	test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 #   Set Default Editor (change 'Nano' to the editor of your choice)
 #   ------------------------------------------------------------
     export EDITOR=/usr/bin/vim
@@ -101,8 +102,9 @@ alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file
 
 alias pipes.sh='pipes.sh -p 5 -t 3 -R'	    #Pipes.sh config
 alias clock='tty-clock -cstrx -C 6'	   		#TTY-Clock config
-alias damnit='sudo !-1'
+alias damnit='sudo !!'
 alias fucking='sudo'
+alias t='todolist'
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
