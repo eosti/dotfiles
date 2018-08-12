@@ -11,7 +11,6 @@
     ~/.config/beets/config.yaml: beets-config
     ~/.mpdconf: mpdconf
     ~/.ncmpcpp/config: ncmpcpp-config
-    ~/.vim: vim
     ~/.tmux.conf: tmux
     ~/.vimrc: vimrc
     ~/.bash: bash
