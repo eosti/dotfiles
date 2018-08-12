@@ -8,14 +8,17 @@
     ~/.dotfiles: ''
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
-    ~/.config/beets/config.yaml: beets-config.yaml
+    ~/.config/beets/config.yaml: beets-config
     ~/.mpdconf: mpdconf
     ~/.ncmpcpp/config: ncmpcpp-config
     ~/.vim: vim
-    ~/.tmux.conf: tmux.conf
+    ~/.tmux.conf: tmux
     ~/.vimrc: vimrc
     ~/.bash: bash
     ~/.config/vis/config: config-vis
+    ~/.chunkwmrc: chunkwmrc
+    ~/.skhdrc: skhdrc
+    ~/.bitbar: bitbar
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
