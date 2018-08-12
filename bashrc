@@ -39,7 +39,7 @@
 
 #PS1 Git Implementation
 #	------------------------------------------------------------
-	export GITAWAREPROMPT=~/.bash/git-aware-prompt
+	export GITAWAREPROMPT=~/.bash
 	source "${GITAWAREPROMPT}/prompt.sh"
 
 #  Set Paths
@@ -109,6 +109,7 @@ alias tl='todolist list by project'
 alias ta='todolist add'
 alias tc='todolist complete'
 alias td='todolist ac'
+alias dotfiles='cd ~/Projects/dotfiles/'
 
 #   showa: to remind yourself of an alias (given some part of it)
 #   ------------------------------------------------------------
