@@ -95,6 +95,8 @@ set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 
 set -g @continuum-restore 'on'
 
+set-option -g default-shell /bin/zsh
+
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
 
