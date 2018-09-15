@@ -19,6 +19,8 @@
     ~/.skhdrc: skhdrc
     ~/.bitbar: bitbar
     ~/.zshrc: zshrc
+    ~/.tmux-powerlinerc: tmux-powerlinerc
+    ~/.config/tmux-powerline/themes/tmux-powerline.sh: tmux-powerline.sh
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
