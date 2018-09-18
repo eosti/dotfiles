@@ -15,13 +15,13 @@ audio_output {
     mixer_type            "software"
      		 }
 
-audio_output {
-    type                    "fifo"
-    name                    "my_fifo"
-    path                    "/tmp/mpd.fifo"
-    format                  "44100:16:2"
-    buffer_time    			"50000"
-                }
+#audio_output {
+#    type                    "fifo"
+#    name                    "my_fifo"
+#    path                    "/tmp/mpd.fifo"
+#    format                  "44100:16:2"
+#    buffer_time    			"50000"
+#                }
 
     decoder {
       plugin                "mp4ff"
