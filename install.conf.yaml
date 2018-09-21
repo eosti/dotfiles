@@ -6,8 +6,6 @@
 
 - link:
     ~/.dotfiles: ''
-    ~/.bash_profile: bash_profile
-    ~/.bashrc: bashrc
     ~/.config/beets/config.yaml: beets-config
     ~/.mpdconf: mpdconf
     ~/.ncmpcpp/config: ncmpcpp-config
