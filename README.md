@@ -16,4 +16,4 @@ Works on my computer with MacOS 10.14 (Mojave).
 ## Screenshots: 
  * glances + tty-clock + pipes.sh + neofetch + ncmpcpp
  
-![A hecking screenshot](https://github.com/eosti/dotfiles/blob/master/screenshot.png)
+![alt-text](https://github.com/eosti/dotfiles/blob/master/screenshot.png "A hecking screenshot")
