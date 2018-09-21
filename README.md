@@ -14,4 +14,6 @@ Works on my computer with MacOS 10.14 (Mojave).
  * dotfile manager: [dotbot](https://github.com/anishathalye/dotbot)
 
 ## Screenshots: 
-Coming Soon!
+ * glances + tty-clock + pipes.sh + neofetch + ncmpcpp
+ 
+![A hecking screenshot](https://github.com/eosti/dotfiles/blob/master/screenshot.png)
