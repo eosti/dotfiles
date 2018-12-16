@@ -3,9 +3,9 @@ export ZSH="/Users/reid/.oh-my-zsh"
 
 # Theme settings
 ZSH_THEME="powerlevel9k/powerlevel9k"
-
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator history)
+
 
 DEFAULT_USER='reid'
 
