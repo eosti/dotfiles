@@ -19,6 +19,7 @@ source $ZSH/oh-my-zsh.sh
 export ANDROID_HOME=/Users/$USER/Library/Android/sdk
 export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
 export PATH=$PATH:/Users/$USER/go/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+export PATH=/usr/local/opt/ruby/bin:$PATH
 source ~/.iterm2_shell_integration.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 . /usr/local/etc/profile.d/z.sh
