@@ -5,7 +5,7 @@ export ZSH="/Users/reid/.oh-my-zsh"
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator history)
-
+POWERLEVEL9K_MODE='nerdfont-complete'
 
 DEFAULT_USER='reid'
 
@@ -22,6 +22,8 @@ export PATH=$PATH:/Users/$USER/go/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform
 export PATH=/usr/local/opt/ruby/bin:$PATH
 source ~/.iterm2_shell_integration.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 . /usr/local/etc/profile.d/z.sh
 
 # Global variables
