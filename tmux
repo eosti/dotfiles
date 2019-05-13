@@ -11,10 +11,8 @@ set-option -ga terminal-overrides ",xterm-256color:Tc"
 
 # The panes {
 
-set -g pane-border-bg colour235
-set -g pane-border-fg colour238
-set -g pane-active-border-bg colour236
-set -g pane-active-border-fg colour51
+set -g pane-border-style bg=colour235,fg=colour238
+set -g pane-active-border-style bg=colour236,fg=colour51
 
 # }
 # The statusbar {
@@ -23,9 +21,7 @@ set -g status-left-length 150
 set -g status-right-length 150
 set -g status-justify "right"
 set -g status-position bottom
-set -g status-bg colour234
-set -g status-fg colour137
-set -g status-attr dim
+set -g status-style bg=colour234,fg=colour137,dim
 
 set -g status-left "#(~/.config/tmux-powerline/powerline.sh left)"
 set -g status-right  "#(~/.config/tmux-powerline/powerline.sh right)"
@@ -38,13 +34,9 @@ setw -g window-status-current-format '#[fg=colour237,bg=colour234]#[fg=colour
 # }
 # The messages {
 
-set -g message-attr bold
-set -g message-fg colour0
-set -g message-bg colour202
+set -g message-style fg=colour0,bg=colour202,bold
 
-setw -g window-status-bell-attr bold
-setw -g window-status-bell-fg colour255
-setw -g window-status-bell-bg colour1
+setw -g window-status-bell-style fg=colour255,bg=colour1,bold
 # }
 
 #############
