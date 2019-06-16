@@ -65,8 +65,6 @@ else
   let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
 endif
 
-map <C-n> :NERDTreeToggle<CR>
-
 "Airline Powerline config
 let g:airline_powerline_fonts = 1 
 
@@ -110,3 +108,14 @@ let g:tex_conceal='abdmg'
 " vim-latex-preview
 autocmd Filetype tex setl updatetime=1
 let g:livepreview_previewer = 'evince'
+
+" NERDTree Magic
+"
+" Opens NERDTree on '$ vim' with no arguments
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Opens NERDTree if opening a directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+" Maps NERDTree
+map <C-n> :NERDTreeToggle<CR>
