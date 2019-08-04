@@ -10,7 +10,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-repeat'
 Plug 'SirVer/ultisnips'
@@ -119,3 +120,5 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 " Maps NERDTree
 map <C-n> :NERDTreeToggle<CR>
+"JSX intergration
+let g:jsx_ext_required = 0
