@@ -14,7 +14,7 @@ set-option -ga terminal-overrides ",xterm-256color:Tc"
 set -g pane-border-style bg=colour235,fg=colour238
 set -g pane-active-border-style bg=colour236,fg=colour51
 
-***REMOVED***
+# }
 # The statusbar {
 
 set -g status-left-length 150
@@ -31,13 +31,13 @@ setw -g window-status-current-format '#[fg=colour237,bg=colour234]#[fg=colour
 
 #setw -g window-status-format '#[fg=colour234,bg=colour235]#[fg=colour245,bg=colour235] #I  #W  #F #[fg=colour235,bg=colour234] '
 #setw -g window-status-current-format '#[fg=colour234,bg=colour237]#[fg=colour174,bg=colour237] #I  #W  #F #[fg=colour237,bg=colour234] ' 
-***REMOVED***
+# }
 # The messages {
 
 set -g message-style fg=colour0,bg=colour202,bold
 
 setw -g window-status-bell-style fg=colour255,bg=colour1,bold
-***REMOVED***
+# }
 
 #############
 #   OTHER   #
