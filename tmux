@@ -3,12 +3,8 @@
 ### DESIGN CHANGES ###
 ######################
 
-# Use the xterm-256color terminal
-set -g default-terminal "xterm-256color"
-
-# Apply Tc
-set-option -ga terminal-overrides ",xterm-256color:Tc"
-
+set -g default-terminal "screen-256color"
+set-option -ga terminal-overrides ",xterm-256color*:Tc:smso"
 # The panes {
 
 set -g pane-border-style bg=colour235,fg=colour238
@@ -48,7 +44,7 @@ set-option -g prefix C-a
 bind-key C-a send-prefix
 
 # split panes using | and -
-bind \ split-window -h
+bind \\ split-window -h
 bind - split-window -v
 unbind '"'
 unbind %
