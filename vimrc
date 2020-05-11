@@ -10,11 +10,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-repeat'
-Plug 'SirVer/ultisnips'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+
+" Plug 'SirVer/ultisnips'
 
 call plug#end()
 
@@ -56,8 +57,6 @@ set belloff     =all       " No annoying bells
 set wrapscan               " Searches wrap around end-of-file.
 set report      =0         " Always report changed lines.
 set synmaxcol   =200       " Only highlight the first 200 columns.
-
-set clipboard   =unnamed   " Make MacOS clipboard default register
 
 set list                   " Show non-printable characters.
 if has('multi_byte') && &encoding ==# 'utf-8'
