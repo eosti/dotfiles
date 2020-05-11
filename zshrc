@@ -23,6 +23,7 @@ export PATH=/usr/local/opt/ruby/bin:$PATH
 source ~/.iterm2_shell_integration.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+export LD_PRELOAD="/usr/local/lib/libmsp430.so"
 
 . /usr/local/etc/profile.d/z.sh
 
