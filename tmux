@@ -1,39 +1,8 @@
-## COLOR REFERENCE: https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
 ######################
 ### DESIGN CHANGES ###
 ######################
 
 set -g default-terminal "screen-256color"
-set-option -ga terminal-overrides ",xterm-256color*:Tc:smso"
-# The panes {
-
-set -g pane-border-style bg=colour235,fg=colour238
-set -g pane-active-border-style bg=colour236,fg=colour51
-
-# }
-# The statusbar {
-
-set -g status-left-length 150
-set -g status-right-length 150
-set -g status-justify "right"
-set -g status-position bottom
-set -g status-style bg=colour234,fg=colour137,dim
-
-set -g status-left "#(~/.config/tmux-powerline/powerline.sh left)"
-set -g status-right  "#(~/.config/tmux-powerline/powerline.sh right)"
-
-setw -g window-status-format '#[fg=colour235,bg=colour234]#[fg=colour245,bg=colour235] #I  #W  #F #[fg=colour234,bg=colour235]#[fg=colour234,colour234]'
-setw -g window-status-current-format '#[fg=colour237,bg=colour234]#[fg=colour1,bg=colour237] #I  #W  #F #[fg=colour234,bg=colour237]#[fg=colour234,bg=colour234]' 
-
-#setw -g window-status-format '#[fg=colour234,bg=colour235]#[fg=colour245,bg=colour235] #I  #W  #F #[fg=colour235,bg=colour234] '
-#setw -g window-status-current-format '#[fg=colour234,bg=colour237]#[fg=colour174,bg=colour237] #I  #W  #F #[fg=colour237,bg=colour234] ' 
-# }
-# The messages {
-
-set -g message-style fg=colour0,bg=colour202,bold
-
-setw -g window-status-bell-style fg=colour255,bg=colour1,bold
-# }
 
 #############
 #   OTHER   #
@@ -82,11 +51,7 @@ set -sg escape-time 0
 
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @plugin 'tmux-plugins/tmux-yank'
-set -g @plugin 'tmux-plugins/tmux-open'
-set -g @plugin 'tmux-plugins/tmux-copycat'
 set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 
 set -g @continuum-restore 'on'
