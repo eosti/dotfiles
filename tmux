@@ -2,7 +2,12 @@
 ### DESIGN CHANGES ###
 ######################
 
-set -g default-terminal "screen-256color"
+set -g default-terminal "xterm-256color"
+
+# Source statusbar from Tmuxline
+# Config found in .vimrc, generate with :Tmuxline and :TmuxlineSnapshot
+if-shell "test -f ~/.tmuxline" "source ~/.tmuxline"
+set -g status-justify left
 
 #############
 #   OTHER   #
@@ -48,6 +53,9 @@ set-option -g allow-rename off
 
 # Makes stuff faster?
 set -sg escape-time 0
+
+# Required for vim-gitgutter
+set -g focus-events on
 
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
