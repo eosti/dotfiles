@@ -1,6 +1,9 @@
 # zsh setup
 export ZSH="/Users/reid/.oh-my-zsh"
 
+# Update without prompting
+DISABLE_UPDATE_PROMPT=true
+
 # Theme settings
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir dir_writable vcs)
@@ -46,3 +49,9 @@ alias pipes.sh='pipes.sh -p 5 -t 3 -R'	    # Pipes.sh config
 alias clock='tty-clock -cstrx -C 6'	   		# TTY-Clock config
 alias please='sudo $(fc -ln -1)'			# Re-run last command with sudo
 alias dotfiles='cd ~/Projects/dotfiles/'	# Jump to dotfiles config
+
+# Neovim > vim
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
+

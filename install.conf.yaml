@@ -10,9 +10,8 @@
     ~/.mpdconf: mpdconf
     ~/.ncmpcpp/config: ncmpcpp-config
     ~/.tmux.conf: tmux
-    ~/.vimrc: vimrc
-    ~/.bash: bash
     ~/.zshrc: zshrc
+    ~/.config/nvim/init.vim: nvim
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

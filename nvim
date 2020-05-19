@@ -1,21 +1,33 @@
 """""""""""""
 "  PLUGINS  "
 """""""""""""
-call plug#begin('~/.vim/plugged')
+call plug#begin(stdpath('data') . '/plugged')
 
-" Plug 'flazz/vim-colorschemes'
-Plug 'scrooloose/nerdtree'
-Plug 'vimwiki/vimwiki'
+" Appearence
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'flazz/vim-colorschemes'
+Plug 'sainnhe/gruvbox-material'
+Plug 'edkolev/tmuxline.vim'
+
+" nvim tools
+Plug 'tpope/vim-repeat'
+" Plug 'SirVer/ultisnips'
+Plug 'airblade/vim-gitgutter'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'Yggdroot/indentLine'
+Plug 'jiangmiao/auto-pairs'
+Plug 'sheerun/vim-polyglot'
+
+" Utilities
+Plug 'scrooloose/nerdtree'
+Plug 'dense-analysis/ale'
+
+" Language-specific
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'flazz/vim-colorschemes'
-Plug 'tpope/vim-repeat'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
-
-" Plug 'SirVer/ultisnips'
 
 call plug#end()
 
@@ -31,6 +43,7 @@ set wrap                   " Wrap lines
 set linebreak              " Break between words
 set autoindent             " Indent according to previous line.
 set expandtab              " Use spaces instead of tabs.
+set tabstop     =4         " Tabs are 4 spaces
 set softtabstop =4         " Tab key indents by 4 spaces.
 set shiftwidth  =4         " >> indents by 4 spaces.
 set shiftround             " >> indents to next multiple of 'shiftwidth'.
@@ -47,9 +60,6 @@ set showcmd                " Show already typed keys when more are expected.
 set incsearch              " Highlight while searching with / or ?.
 set hlsearch               " Keep matches highlighted.
 
-set ttyfast                " Faster redrawing.
-set lazyredraw             " Only redraw when necessary.
-
 set splitbelow             " Open new windows below the current window.
 set splitright             " Open new windows right of the current window.
 
@@ -57,6 +67,11 @@ set belloff     =all       " No annoying bells
 set wrapscan               " Searches wrap around end-of-file.
 set report      =0         " Always report changed lines.
 set synmaxcol   =200       " Only highlight the first 200 columns.
+set relativenumber         " Use relative numbering
+set mouse       =a         " Auto mouse
+set cursorline             " Highlight the current line
+set termguicolors          " Color compatibility
+set autowrite              " Automagically save before making"
 
 set list                   " Show non-printable characters.
 if has('multi_byte') && &encoding ==# 'utf-8'
@@ -68,34 +83,21 @@ endif
 "Airline Powerline config
 let g:airline_powerline_fonts = 1 
 
+" Set spellcheck for specific file types
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.wiki setlocal spell
 """"""""""""""""
 "  APPEARENCE  "
 """"""""""""""""
 
-let g:airline_theme='minimalist'
+let g:airline_theme='gruvbox_material'
 
+let g:gruvbox_material_background = 'medium'
 set background=dark
-colorscheme gruvbox
-hi vertsplit ctermfg=238 ctermbg=235
-hi LineNr ctermfg=237
-hi StatusLine ctermfg=235 ctermbg=245
-hi StatusLineNC ctermfg=235 ctermbg=237
-hi Search ctermbg=58 ctermfg=15
-hi Default ctermfg=1
-hi clear SignColumn
-hi SignColumn ctermbg=235
-hi GitGutterAdd ctermbg=235 ctermfg=245
-hi GitGutterChange ctermbg=235 ctermfg=245
-hi GitGutterDelete ctermbg=235 ctermfg=245
-hi GitGutterChangeDelete ctermbg=235 ctermfg=245
-hi EndOfBuffer ctermfg=237 ctermbg=235
+colorscheme gruvbox-material
 
-set statusline=%=&P\ %f\ %m
-set fillchars=vert:\ ,stl:\ ,stlnc:\ 
-set laststatus=2
-set noshowmode
+" gitgutter
+let g:gitgutter_override_sign_column_highlight = 0
 
 """""""""""""
 "  PLUGINS  "
@@ -121,3 +123,21 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 map <C-n> :NERDTreeToggle<CR>
 "JSX intergration
 let g:jsx_ext_required = 0
+
+"""""""""""""""""""""""""
+" tmux statusbar config "
+"""""""""""""""""""""""""
+let g:airline#extensions#tmuxline#enabled = 1
+let airline#extensions#tmuxline#snapshot_file = "~/.tmuxline"
+
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'b'    : "#P",
+      \'win'  : ['#I #F', '#W'],
+      \'cwin' : ['#I #F', '#W'],
+      \'x'    : '#{prefix_highlight}',
+      \'y'    : ['%m/%d','%R'],
+      \'z'    : '#H',
+      \'options': {
+        \'status-justify': 'left'}}
+
