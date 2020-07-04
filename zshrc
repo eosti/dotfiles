@@ -31,7 +31,7 @@ export LD_PRELOAD="/usr/local/lib/libmsp430.so"
 . /usr/local/etc/profile.d/z.sh
 
 # Global variables
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/local/bin/nvim
 export BLOCKSIZE=1k
 
 # Configure thefuck
