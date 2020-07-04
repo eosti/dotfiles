@@ -110,8 +110,11 @@ let g:tex_conceal='abdmg'
 " vim-latex-preview
 autocmd Filetype tex setl updatetime=1
 let g:livepreview_previewer = 'evince'
+ 
+" ALE
+let b:ale_fixers = ['prettier', 'eslint']
 
-" NERDTree Magic
+"NERDTree Magic
 "
 " Opens NERDTree on '$ vim' with no arguments
 autocmd StdinReadPre * let s:std_in=1
