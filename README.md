@@ -1,7 +1,7 @@
 # dotfiles
 Make my shell look pretty: config files!
 
-Works on my computer with MacOS 10.14 (Mojave). 
+Works on the latest MacOS Catalina.
 
 ## What's installed
  * shell: [zsh](https://www.zsh.org/) + [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
@@ -14,6 +14,6 @@ Works on my computer with MacOS 10.14 (Mojave).
  * dotfile manager: [dotbot](https://github.com/anishathalye/dotbot)
 
 ## Screenshots: 
- * glances + tty-clock + pipes.sh + neofetch + ncmpcpp
+ * nvim + pipes.sh + neofetch
  
-![alt-text](https://github.com/eosti/dotfiles/blob/master/screenshot.png "A hecking screenshot")
+ ![Screenshot](screenshot.png)
