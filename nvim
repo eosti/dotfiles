@@ -18,6 +18,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-surround'
 
 " Utilities
 Plug 'scrooloose/nerdtree'
@@ -105,8 +106,14 @@ let g:gitgutter_override_sign_column_highlight = 0
 " vimtex
 let g:tex_flavor='latex'
 let g:vimtex_quickfix_mode=0
-" set conceallevel=1
-let g:tex_conceal='abdmg'
+set conceallevel=0
+let g:tex_conceal = ''
+
+" indent-line
+let g:vim_json_syntax_conceal = 0
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
+
 " vim-latex-preview
 autocmd Filetype tex setl updatetime=1
 let g:livepreview_previewer = 'evince'
