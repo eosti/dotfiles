@@ -19,6 +19,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-eunuch'
 
 " Utilities
 Plug 'scrooloose/nerdtree'
