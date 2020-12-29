@@ -11,7 +11,7 @@
     ~/.ncmpcpp/config: ncmpcpp-config
     ~/.tmux.conf: tmux
     ~/.zshrc: zshrc
-    ~/.config/nvim/init.vim: nvim
+    ~/.config/nvim/init.vim: nvim.vim
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
