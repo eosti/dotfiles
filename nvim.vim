@@ -9,6 +9,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes'
 Plug 'sainnhe/gruvbox-material'
 Plug 'edkolev/tmuxline.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " nvim tools
 Plug 'tpope/vim-repeat'
@@ -19,6 +20,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'tmsvg/pear-tree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
 
 " Utilities
 Plug 'scrooloose/nerdtree'
@@ -111,7 +114,7 @@ let g:tex_conceal=''
 let g:vimtex_view_method='skim'
 
 " ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<none>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:snips_author='Reid Sox-Harris'
@@ -120,6 +123,13 @@ let g:snips_author='Reid Sox-Harris'
 let g:vim_json_syntax_conceal = 0
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
+let g:indentLine_fileTypeExclude = ['markdown']
+
+" pear-tree
+let g:pear_tree_repeatable_expand=0
+let g:pear_tree_smart_openers=1
+let g:pear_tree_smart_closers=1
+let g:pear_tree_smart_backspace=1
 
 " NERDTree Magic
 " Opens NERDTree on '$ vim' with no arguments
@@ -133,6 +143,16 @@ map <C-n> :NERDTreeToggle<CR>
 
 "JSX intergration
 let g:jsx_ext_required = 0
+
+" completion-nvim
+lua require'lspconfig'.pyls.setup{on_attach=require'completion'.on_attach}
+autocmd BufEnter * lua require'completion'.on_attach()
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c
+let g:completion_enable_snippet = 'UltiSnips'
 
 """""""""""""""""""""""""
 " tmux statusbar config "
@@ -151,3 +171,10 @@ let g:tmuxline_preset = {
       \'options': {
         \'status-justify': 'left'}}
 
+
+"""""""""""""""""""""""
+"  LUA configuration  "
+"""""""""""""""""""""""
+" Instead of lots of Lua here, we outsource it to a different file
+lua require("lsp")
+" Eventually we will migrate entirely to Lua, but not right now.

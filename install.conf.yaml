@@ -12,6 +12,7 @@
     ~/.tmux.conf: tmux
     ~/.zshrc: zshrc
     ~/.config/nvim/init.vim: nvim.vim
+    ~/.config/nvim/lua/lsp/init.lua: nvim.lua
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
