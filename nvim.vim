@@ -22,9 +22,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
-
-" Utilities
-Plug 'scrooloose/nerdtree'
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 
 " Language-specific
 Plug 'lervag/vimtex'
@@ -86,7 +84,7 @@ else
 endif
 
 " Set spellcheck for specific file types
-autocmd FileType latex,markdown setlocal spell
+autocmd FileType tex,markdown setlocal spell
 
 " Appearence
 set background=dark
@@ -131,15 +129,8 @@ let g:pear_tree_smart_openers=1
 let g:pear_tree_smart_closers=1
 let g:pear_tree_smart_backspace=1
 
-" NERDTree Magic
-" Opens NERDTree on '$ vim' with no arguments
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" Opens NERDTree if opening a directory
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-" Maps NERDTree
-map <C-n> :NERDTreeToggle<CR>
+" CHADTree
+nnoremap <leader>v <cmd>CHADopen<cr>
 
 "JSX intergration
 let g:jsx_ext_required = 0
