@@ -2,7 +2,7 @@
 ### DESIGN CHANGES ###
 ######################
 
-set -g default-terminal "screen-256color"
+set -g default-terminal "xterm-256color"
 
 # Source statusbar from Tmuxline
 # Config found in .vimrc, generate with :Tmuxline and :TmuxlineSnapshot
@@ -52,7 +52,7 @@ set -g renumber-windows on
 set-option -g allow-rename off
 
 # Makes stuff faster?
-set -sg escape-time 0
+set -sg escape-time 5
 
 # Required for vim-gitgutter
 set -g focus-events on
