@@ -25,6 +25,7 @@ Plug 'kabouzeid/nvim-lspinstall'
 Plug 'hrsh7th/nvim-compe'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'preservim/nerdcommenter'
+Plug 'shime/vim-livedown'
 
 " Language-specific
 Plug 'lervag/vimtex'
@@ -90,7 +91,7 @@ endif
 autocmd FileType tex,markdown setlocal spell
 
 " yaml specific indentation
-autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=<:>
+"autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=<:>
 
 " Appearence
 set background=dark
@@ -197,6 +198,19 @@ let g:NERDToggleCheckAllLines = 1
 
 " Set a language to use its alternate delimiters by default
 let g:NERDAltDelims_c = 1
+
+" Livedown
+" should markdown preview get shown automatically upon opening markdown buffer
+let g:livedown_autorun = 0
+
+" should the browser window pop-up upon previewing
+let g:livedown_open = 1
+
+" the port on which Livedown server will run
+let g:livedown_port = 1337
+
+" the browser to use, can also be firefox, chrome or other, depending on your executable
+let g:livedown_browser = "firefox"
 
 """""""""""""""""""""""""
 " tmux statusbar config "
