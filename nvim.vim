@@ -93,6 +93,9 @@ autocmd FileType tex,markdown setlocal spell
 " yaml specific indentation
 "autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=<:>
 
+" Inline markdown highlighting
+let g:markdown_fenced_languages = ['html', 'python', 'c']
+
 " Appearence
 set background=dark
 colorscheme gruvbox-material
