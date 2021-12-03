@@ -55,3 +55,4 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
+export PATH="/usr/local/opt/curl/bin:$PATH"

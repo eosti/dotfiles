@@ -13,19 +13,32 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " nvim tools
 Plug 'tpope/vim-repeat'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'tmsvg/pear-tree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
 Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall'
-Plug 'hrsh7th/nvim-compe'
+Plug 'williamboman/nvim-lsp-installer', {'do': ':LspUpdateAll'}
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'preservim/nerdcommenter'
 Plug 'shime/vim-livedown'
+
+" nvim cmp
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'f3fora/cmp-spell'
+Plug 'lukas-reineke/cmp-under-comparator'
+
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'rafamadriz/friendly-snippets'
+
+Plug 'onsails/lspkind-nvim'
 
 " Language-specific
 Plug 'lervag/vimtex'
@@ -121,19 +134,13 @@ let g:vimtex_syntax_conceal_default=0
 let g:tex_conceal=''
 let g:vimtex_view_method='skim'
 
-" ultisnips
-let g:UltiSnipsExpandTrigger="<none>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:snips_author='Reid Sox-Harris'
-
-" indent-line
+" " indent-line
 let g:vim_json_syntax_conceal = 0
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
 let g:indentLine_fileTypeExclude = ['markdown']
 
-" pear-tree
+" " pear-tree
 let g:pear_tree_repeatable_expand=0
 let g:pear_tree_smart_openers=1
 let g:pear_tree_smart_closers=1
@@ -145,73 +152,31 @@ nnoremap <leader>v <cmd>CHADopen<cr>
 "JSX intergration
 let g:jsx_ext_required = 0
 
-" nvim-compe
-set completeopt=menuone,noselect
-let g:compe = {}
-let g:compe.enabled = v:true
-let g:compe.autocomplete = v:true
-let g:compe.debug = v:false
-let g:compe.min_length = 1
-let g:compe.preselect = 'enable'
-let g:compe.throttle_time = 80
-let g:compe.source_timeout = 200
-let g:compe.incomplete_delay = 400
-let g:compe.max_abbr_width = 100
-let g:compe.max_kind_width = 100
-let g:compe.max_menu_width = 100
-let g:compe.documentation = v:true
-
-let g:compe.source = {}
-let g:compe.source.path = v:true
-let g:compe.source.buffer = v:true
-let g:compe.source.calc = v:true
-let g:compe.source.nvim_lsp = v:true
-let g:compe.source.nvim_lua = v:true
-let g:compe.source.vsnip = v:true
-let g:compe.source.ultisnips = v:true
-
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
-set shortmess+=c
-
 " NERDcommenter
 " Create default mappings
 let g:NERDCreateDefaultMappings = 1
-
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
-
 " Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
-
 " Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
-
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
-
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
-
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
-
 " Set a language to use its alternate delimiters by default
 let g:NERDAltDelims_c = 1
 
 " Livedown
 " should markdown preview get shown automatically upon opening markdown buffer
 let g:livedown_autorun = 0
-
 " should the browser window pop-up upon previewing
 let g:livedown_open = 1
-
 " the port on which Livedown server will run
 let g:livedown_port = 1337
-
 " the browser to use, can also be firefox, chrome or other, depending on your executable
 let g:livedown_browser = "firefox"
 
