@@ -1,6 +1,10 @@
-local nvim_lsp = require('lspconfig')
+-- Neovim configuration, but in Lua
 
--- Treesitter Config
+--
+-- Treesitter
+-- https://github.com/nvim-treesitter/nvim-treesitter
+--
+
 require'nvim-treesitter.configs'.setup {
     ensure_installed = "maintained",
     highlight = {
@@ -22,7 +26,10 @@ require'nvim-treesitter.configs'.setup {
     }
 }
 
--- lspinstall
+--
+-- nvim LSP
+--
+
 local nvim_lsp = require('lspconfig')
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -71,11 +78,15 @@ local on_attach = function(client, bufnr)
     end
 end
 
+--
+-- nvim-lsp-installer
+-- https://github.com/williamboman/nvim-lsp-installer
+--
+
 -- required for nvim-cmp
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
--- nvim-lsp-installer
 local lsp_installer = require("nvim-lsp-installer")
 -- Register a handler that will be called for all installed servers.
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
@@ -95,11 +106,19 @@ lsp_installer.on_server_ready(function(server)
     server:setup(opts)
 end)
 
--- luasnip setup
+--
+-- luasnip
+-- https://github.com/L3MON4D3/LuaSnip
+--
+
 local luasnip = require('luasnip')
 require("luasnip/loaders/from_vscode").lazy_load()
 
--- nvim-cmp setup
+--
+-- nvim-cmp
+-- https://github.com/hrsh7th/nvim-cmp
+--
+
 local cmp = require 'cmp'
 
 local t = function(str)
@@ -197,3 +216,21 @@ cmp.setup {
     format = lspkind.cmp_format({with_text = true, maxwidth = 50})
   }
 }
+
+--
+-- Indent Blankline
+-- https://github.com/lukas-reineke/indent-blankline.nvim
+--
+
+require("indent_blankline").setup {
+    -- for example, context is off by default, use this to turn it on
+    show_current_context = true,
+    show_current_context_start = false,
+}
+
+--
+-- gitsigns.nvim
+-- https://github.com/lewis6991/gitsigns.nvim
+--
+
+require('gitsigns').setup()

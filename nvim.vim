@@ -13,8 +13,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " nvim tools
 Plug 'tpope/vim-repeat'
-Plug 'airblade/vim-gitgutter'
-Plug 'Yggdroot/indentLine'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'tmsvg/pear-tree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
@@ -23,6 +23,7 @@ Plug 'williamboman/nvim-lsp-installer', {'do': ':LspUpdateAll'}
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'preservim/nerdcommenter'
 Plug 'shime/vim-livedown'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 " nvim cmp
 Plug 'neovim/nvim-lspconfig'
@@ -124,9 +125,6 @@ let g:airline_theme='gruvbox_material'
 let g:gruvbox_material_background='medium'
 let g:airline#extensions#whitespace#enabled=0
 
-" gitgutter
-let g:gitgutter_override_sign_column_highlight=0
-
 " vimtex
 let g:tex_flavor='latex'
 let g:vimtex_quickfix_mode=0
@@ -134,13 +132,7 @@ let g:vimtex_syntax_conceal_default=0
 let g:tex_conceal=''
 let g:vimtex_view_method='skim'
 
-" " indent-line
-let g:vim_json_syntax_conceal = 0
-let g:vim_markdown_conceal = 0
-let g:vim_markdown_conceal_code_blocks = 0
-let g:indentLine_fileTypeExclude = ['markdown']
-
-" " pear-tree
+" pear-tree
 let g:pear_tree_repeatable_expand=0
 let g:pear_tree_smart_openers=1
 let g:pear_tree_smart_closers=1
