@@ -128,7 +128,7 @@ let g:airline#extensions#whitespace#enabled=0
 " vimtex
 let g:tex_flavor='latex'
 let g:vimtex_quickfix_mode=0
-let g:vimtex_syntax_conceal_default=0
+let g:vimtex_syntax_conceal_disable=0
 let g:tex_conceal=''
 let g:vimtex_view_method='skim'
 
@@ -171,6 +171,9 @@ let g:livedown_open = 1
 let g:livedown_port = 1337
 " the browser to use, can also be firefox, chrome or other, depending on your executable
 let g:livedown_browser = "firefox"
+
+" eslint
+autocmd BufWritePost *.js,*.jsx,*.ts EslintFixAll
 
 """""""""""""""""""""""""
 " tmux statusbar config "
