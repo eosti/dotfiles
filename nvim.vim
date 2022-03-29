@@ -24,6 +24,7 @@ Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'preservim/nerdcommenter'
 Plug 'shime/vim-livedown'
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'LudoPinelli/comment-box.nvim'
 
 " nvim cmp
 Plug 'neovim/nvim-lspconfig'
