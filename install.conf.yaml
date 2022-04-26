@@ -13,6 +13,8 @@
     ~/.zshrc: zshrc
     ~/.config/nvim/init.vim: nvim.vim
     ~/.config/nvim/lua/lsp/init.lua: nvim.lua
+    ~/.profile: profile
+    ~/.zprofile: profile
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
