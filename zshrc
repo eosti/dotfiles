@@ -1,16 +1,26 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # zsh setup
 export ZSH="/Users/reid/.oh-my-zsh"
+
+# z fuzzy completion
+  . /opt/homebrew/etc/profile.d/z.sh
+
+# Brew with M1
+export PATH="/opt/homebrew/bin:$PATH"
 
 # Update without prompting
 DISABLE_UPDATE_PROMPT=true
 
-# Theme settings
-ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator history)
-POWERLEVEL9K_MODE='nerdfont-complete'
-
-DEFAULT_USER='reid'
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 
 # Plugins
 plugins=(
@@ -25,23 +35,14 @@ export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/
 export PATH=$PATH:/Users/$USER/go/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 export PATH=/usr/local/opt/ruby/bin:$PATH
 source ~/.iterm2_shell_integration.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-export LD_PRELOAD="/usr/local/lib/libmsp430.so"
-
-. /usr/local/etc/profile.d/z.sh
 
 # Global variables
 export EDITOR=/usr/local/bin/nvim
 export BLOCKSIZE=1k
+DEFAULT_USER='reid'
 
 # Configure thefuck
 eval "$(thefuck --alias)"
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
 
 # Aliases
 alias cp='cp -iv'                           # Preferred 'cp' implementation
@@ -62,3 +63,11 @@ if type nvim > /dev/null 2>&1; then
 fi
 
 export PATH="/usr/local/opt/curl/bin:$PATH"
+
+# brew ZSH packages
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
