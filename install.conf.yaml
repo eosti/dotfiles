@@ -6,13 +6,21 @@
 
 - link:
     ~/.dotfiles: ''
-    ~/.config/beets/config.yaml: beets-config
+    ~/.config/beets/config.yaml: 
+      create: true
+      path: beets-config
     ~/.mpdconf: mpdconf
-    ~/.ncmpcpp/config: ncmpcpp-config
+    ~/.ncmpcpp/config: 
+      create: true
+      path: ncmpcpp-config
     ~/.tmux.conf: tmux
     ~/.zshrc: zshrc
-    ~/.config/nvim/init.vim: nvim.vim
-    ~/.config/nvim/lua/lsp/init.lua: nvim.lua
+    ~/.config/nvim/init.vim: 
+      create: true
+      path: nvim.vim
+    ~/.config/nvim/lua/lsp/init.lua: 
+      create: true
+      path: nvim.lua
     ~/.profile: profile
     ~/.zprofile: profile
     ~/.p10k.zsh: p10k.zsh
