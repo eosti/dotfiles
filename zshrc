@@ -37,7 +37,7 @@ export PATH=/usr/local/opt/ruby/bin:$PATH
 source ~/.iterm2_shell_integration.zsh
 
 # Global variables
-export EDITOR=/usr/local/bin/nvim
+export EDITOR=vim
 export BLOCKSIZE=1k
 DEFAULT_USER='reid'
 
