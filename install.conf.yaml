@@ -20,25 +20,13 @@
       path: ncmpcpp-config
     ~/.tmux.conf: tmux
     ~/.zshrc: zshrc
-<<<<<<< HEAD
     ~/.config/nvim/lua: nvim/lua/
     ~/.config/nvim/init.lua: nvim/init.lua
-=======
-    ~/.config/nvim/init.vim: 
-      create: true
-      path: nvim.vim
-    ~/.config/nvim/lua/lsp/init.lua: 
-      create: true
-      path: nvim.lua
->>>>>>> b9e2fb2 (fix dotbot to create directories)
     ~/.profile: profile
     ~/.zprofile: profile
-<<<<<<< HEAD
+    ~/.p10k.zsh: p10k.zsh
     ~/.config/wezterm/wezterm.lua: wezterm/wezterm.lua
     ~/.config/wezterm/keymap.lua: wezterm/keymap.lua
-=======
-    ~/.p10k.zsh: p10k.zsh
->>>>>>> 9a0c22b (cleanup zsh plugins)
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
