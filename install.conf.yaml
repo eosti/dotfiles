@@ -20,8 +20,12 @@
     ~/.config/nvim/init.lua: nvim/init.lua
     ~/.profile: profile
     ~/.zprofile: profile
+<<<<<<< HEAD
     ~/.config/wezterm/wezterm.lua: wezterm/wezterm.lua
     ~/.config/wezterm/keymap.lua: wezterm/keymap.lua
+=======
+    ~/.p10k.zsh: p10k.zsh
+>>>>>>> 9a0c22b (cleanup zsh plugins)
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
