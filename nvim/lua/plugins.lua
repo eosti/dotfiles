@@ -66,16 +66,17 @@ return require('packer').startup(function(use)
     use 'dcampos/nvim-snippy'
     use 'honza/vim-snippets'
 
+    use 'dstein64/vim-startuptime'
+
     -- nvim Tools
     use 'LudoPinelli/comment-box.nvim'
     use 'tpope/vim-repeat'
     use {
         'lukas-reineke/indent-blankline.nvim',
         config = function()
-            require("indent_blankline").setup {
-                show_current_context = true,
-                show_current_context_start = false,
-                use_treesitter = true,
+            require("ibl").setup {
+                scope = { show_start = false, show_end = false },
+                indent = { char = {"│"} },
             }
         end
     }
@@ -110,7 +111,7 @@ return require('packer').startup(function(use)
         config = function() 
             require("nvim-autopairs").setup {
                 -- Needs special config to use with cmp
-            } 
+            }
         end
     }
 

@@ -7,9 +7,10 @@ fi
 
 # zsh setup
 export ZSH="/Users/reid/.oh-my-zsh"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # z fuzzy completion
-  . /opt/homebrew/etc/profile.d/z.sh
+#  . /opt/homebrew/etc/profile.d/z.sh
 
 # Brew with M1
 export PATH="/opt/homebrew/bin:$PATH"
@@ -26,6 +27,9 @@ eval "$(pyenv init --path)"
 plugins=(
   git
   pyenv
+  z
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 # Sources
@@ -34,7 +38,6 @@ export ANDROID_HOME=/Users/$USER/Library/Android/sdk
 export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/opt/llvm/bin/
 export PATH=$PATH:/Users/$USER/go/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 export PATH=/usr/local/opt/ruby/bin:$PATH
-source ~/.iterm2_shell_integration.zsh
 
 # Global variables
 export EDITOR=vim
@@ -63,11 +66,6 @@ if type nvim > /dev/null 2>&1; then
 fi
 
 export PATH="/usr/local/opt/curl/bin:$PATH"
-
-# brew ZSH packages
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

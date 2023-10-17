@@ -9,11 +9,39 @@ require("mason-lspconfig").setup {
 local lspconfig = require('lspconfig')
 local lsp_defaults = lspconfig.util.default_config
 
+require('mason-lspconfig').setup_handlers({
+  function(server)
+    lspconfig[server].setup({})
+  end,
+})
+
 lsp_defaults.capabilities = vim.tbl_deep_extend(
   'force',
   lsp_defaults.capabilities,
   require('cmp_nvim_lsp').default_capabilities()
 )
+
+require('lspconfig').pylsp.setup({
+    settings = {
+        pylsp = {
+            plugins = {
+                pycodestyle = {
+                    maxLineLength = 999,
+                },
+            },
+        },
+    },
+})
+
+require('lspconfig').lua_ls.setup{
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
