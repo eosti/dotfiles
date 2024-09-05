@@ -18,11 +18,6 @@ export PATH="/opt/homebrew/bin:$PATH"
 # Update without prompting
 DISABLE_UPDATE_PROMPT=true
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-
 # Plugins
 plugins=(
   git
@@ -30,13 +25,19 @@ plugins=(
   z
   zsh-autosuggestions
   zsh-syntax-highlighting
+  poetry-env
+  poetry
 )
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # Sources
 source $ZSH/oh-my-zsh.sh
-export ANDROID_HOME=/Users/$USER/Library/Android/sdk
 export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/opt/llvm/bin/
-export PATH=$PATH:/Users/$USER/go/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+export PATH=$PATH:/Users/$USER/go/bin
 export PATH=/usr/local/opt/ruby/bin:$PATH
 
 # Global variables
@@ -59,6 +60,7 @@ alias pipes.sh='pipes.sh -p 5 -t 3 -R'      # Pipes.sh config
 alias clock='tty-clock -cstrx -C 6'         # TTY-Clock config
 alias please='sudo $(fc -ln -1)'            # Re-run last command with sudo
 alias dotfiles='cd ~/Projects/dotfiles/'    # Jump to dotfiles config
+alias dirs='dirs -v'                        # Always show stack vertically
 
 # Neovim > vim
 if type nvim > /dev/null 2>&1; then

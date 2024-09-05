@@ -1,7 +1,7 @@
 -- Mason is used to manage LSP servers
 require("mason").setup()
 require("mason-lspconfig").setup {
-    ensure_installed = {"ansiblels", "astro", "bashls", "clangd", "cssls", "dockerls", "docker_compose_language_service", "eslint", "html", "jsonls", "tsserver", "texlab", "lua_ls", "marksman", "pylsp", "tailwindcss", "yamlls"},
+    ensure_installed = {"ansiblels", "astro", "bashls", "clangd", "cssls", "dockerls", "docker_compose_language_service", "eslint", "html", "jsonls", "ts_ls", "texlab", "lua_ls", "marksman", "pylsp", "tailwindcss", "yamlls"},
     automatic_installation = true,
 }
 
@@ -42,6 +42,16 @@ require('lspconfig').lua_ls.setup{
         }
     }
 }
+
+require('lspconfig').clangd.setup{}
+
+require('lspconfig').bashls.setup{
+    filetypes = {"bash", "sh", "zsh"}
+}
+
+require('lspconfig').eslint.setup{}
+
+require('lspconfig').astro.setup{}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
