@@ -7,10 +7,6 @@ fi
 
 # zsh setup
 export ZSH="/Users/reid/.oh-my-zsh"
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# z fuzzy completion
-#  . /opt/homebrew/etc/profile.d/z.sh
 
 # Brew with M1
 export PATH="/opt/homebrew/bin:$PATH"
@@ -23,8 +19,6 @@ plugins=(
   git
   pyenv
   z
-  zsh-autosuggestions
-  zsh-syntax-highlighting
   poetry-env
   poetry
 )
@@ -37,7 +31,7 @@ eval "$(pyenv virtualenv-init -)"
 # Sources
 source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/opt/llvm/bin/
-export PATH=$PATH:/Users/$USER/go/bin
+export PATH=$PATH:/Users/$USER/go/bin:/Users/$USER/.local/bin
 export PATH=/usr/local/opt/ruby/bin:$PATH
 
 # Global variables
@@ -71,3 +65,7 @@ export PATH="/usr/local/opt/curl/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh

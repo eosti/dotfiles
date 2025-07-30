@@ -19,7 +19,9 @@
       create: true
       path: ncmpcpp-config
     ~/.tmux.conf: tmux
-    ~/.zshrc: zshrc
+    ~/.zshrc: 
+      force: true
+      path: zshrc
     ~/.config/nvim/lua: nvim/lua/
     ~/.config/nvim/init.lua: nvim/init.lua
     ~/.profile: profile

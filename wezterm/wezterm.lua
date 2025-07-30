@@ -36,7 +36,7 @@ config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 2000 }
 config.keys = keymap.tmux
 
 -- Appearance
-if wezterm.target_triple == "x86_64-apple-darwin" then
+if wezterm.target_triple == "x86_64-apple-darwin" or wezterm.target_triple == "aarch64-apple-darwin" then
     config.color_scheme = 'Gruvbox dark, medium (base16)'
     config.font = wezterm.font 'MesloLGS Nerd Font Mono'
     config.font_size = 12
@@ -47,5 +47,7 @@ else
     config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
     config.font_size = 11
 end
+
+config.freetype_load_flags = "NO_HINTING"
 
 return config
