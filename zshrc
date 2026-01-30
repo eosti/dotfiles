@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # zsh setup
-export ZSH="/Users/reid/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Brew with M1
 export PATH="/opt/homebrew/bin:$PATH"
@@ -21,6 +21,8 @@ plugins=(
   z
   poetry-env
   poetry
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 # pyenv
@@ -38,9 +40,6 @@ export PATH=/usr/local/opt/ruby/bin:$PATH
 export EDITOR=vim
 export BLOCKSIZE=1k
 DEFAULT_USER='reid'
-
-# Configure thefuck
-eval "$(thefuck --alias)"
 
 # Aliases
 alias cp='cp -iv'                           # Preferred 'cp' implementation
@@ -69,3 +68,12 @@ export PATH="/usr/local/opt/curl/bin:$PATH"
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/Users/reid/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<

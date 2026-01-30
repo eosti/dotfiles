@@ -9,19 +9,13 @@ require("mason-lspconfig").setup {
 local lspconfig = require('lspconfig')
 local lsp_defaults = lspconfig.util.default_config
 
-require('mason-lspconfig').setup_handlers({
-    function(server)
-        lspconfig[server].setup({})
-    end,
-})
-
 lsp_defaults.capabilities = vim.tbl_deep_extend(
     'force',
     lsp_defaults.capabilities,
     require('cmp_nvim_lsp').default_capabilities()
 )
 
-require('lspconfig').pylsp.setup({
+vim.lsp.config('pylsp', {
     settings = {
         pylsp = {
             plugins = {
@@ -33,7 +27,7 @@ require('lspconfig').pylsp.setup({
     },
 })
 
-require('lspconfig').lua_ls.setup{
+vim.lsp.config('lua_ls', {
     settings = {
         Lua = {
             diagnostics = {
@@ -41,16 +35,16 @@ require('lspconfig').lua_ls.setup{
             }
         }
     }
-}
+})
 
 
-require('lspconfig').bashls.setup{
+vim.lsp.config('bashls', {
     filetypes = {"bash", "sh", "zsh"}
-}
+})
 
-require('lspconfig').jinja_lsp.setup{
+vim.lsp.config('jinja_lsp', {
     filetypes  = {"jinja", "jinja2", "j2"}
-}
+})
 
 vim.filetype.add {
     extension = {
@@ -61,9 +55,9 @@ vim.filetype.add {
 }
 
 
-require('lspconfig').clangd.setup{}
-require('lspconfig').eslint.setup{}
-require('lspconfig').astro.setup{}
+vim.lsp.config('clangd', {})
+vim.lsp.config('eslint', {})
+vim.lsp.config('astro', {})
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
