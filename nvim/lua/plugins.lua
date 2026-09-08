@@ -1,148 +1,125 @@
--- Install packer.nvim
-local ensure_packer = function()
-	local fn = vim.fn
-	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-		vim.cmd([[packadd packer.nvim]])
-		return true
-	end
-	return false
-end
-
-local packer_bootstrap = ensure_packer()
-
-return require("packer").startup(function(use)
-	use("wbthomason/packer.nvim")
-
+return {
 	--
 	-- Appearance
 	--
 
-	use("sainnhe/gruvbox-material")
+	{
+		"f4z3r/gruvbox-material.nvim",
+		name = "gruvbox-material",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
 
-	use({
+	{
 		"Tsuzat/NeoSolarized.nvim",
+		lazy = false,
+		priority = 1000,
 		config = function()
 			require("NeoSolarized").setup({
 				style = "dark",
 				transparent = "false",
 			})
 		end,
-	})
+		dependencies = {
+			"tjdevries/colorbuddy.nvim",
+		},
+	},
 
-	use({
+	{
 		"nvim-lualine/lualine.nvim",
-		requires = { "nvim-tree/nvim-web-devicons", opt = true },
-	})
+		dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
+	},
 
 	--
 	-- LSP
 	--
 
-	use({
-		"williamboman/mason.nvim",
-		run = ":MasonUpdate", -- :MasonUpdate updates registry contents
-	})
+	{
+		"mason-org/mason.nvim",
+		opts = {},
+	},
 
-	use("williamboman/mason-lspconfig.nvim")
-	use("neovim/nvim-lspconfig")
+	{
+		"mason-org/mason-lspconfig.nvim",
+		opts = {},
+		dependencies = {
+			{ "mason-org/mason.nvim", opts = {} },
+			"neovim/nvim-lspconfig",
+		},
+	},
+
+	"neovim/nvim-lspconfig",
 
 	-- cmp
 
-	use({
-		"hrsh7th/nvim-cmp",
-		requires = {
-			use("hrsh7th/cmp-nvim-lsp"),
-			use("hrsh7th/cmp-buffer"),
-			use("hrsh7th/cmp-path"),
-			use("hrsh7th/cmp-cmdline"),
-			use("dcampos/cmp-snippy"),
-			use("onsails/lspkind.nvim"),
-		},
-		opts = {
-			performance = {
-				debounce = 0, -- default is 60ms
-				throttle = 0, -- default is 30ms
-			},
-		},
-	})
+	{
+		"saghen/blink.cmp",
+		-- optional: provides snippets for the snippet source
+		dependencies = { "rafamadriz/friendly-snippets", "disrupted/blink-cmp-conventional-commits" },
 
-	-- snippy
-	use("dcampos/nvim-snippy")
-	use("honza/vim-snippets")
-
-	use("dstein64/vim-startuptime")
+		-- use a release tag to download pre-built binaries
+		version = "1.*",
+	},
 
 	-- nvim Tools
-	use("LudoPinelli/comment-box.nvim")
-	use("tpope/vim-repeat")
-	use({
+	"LudoPinelli/comment-box.nvim",
+	"tpope/vim-repeat",
+	{
 		"lukas-reineke/indent-blankline.nvim",
-		config = function()
-			require("ibl").setup({
-				scope = { show_start = false, show_end = false },
-				indent = { char = { "│" } },
-			})
-		end,
-	})
+		main = "ibl",
+		opts = {
+			scope = { show_start = false, show_end = false },
+			indent = { char = { "│" } },
+		},
+	},
 
-	use({
+	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("gitsigns").setup()
 		end,
-	})
+	},
 
-	use({
+	{
 		"kylechui/nvim-surround",
-		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+		version = "^4.0.0", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+	},
+
+	{
+		"romus204/tree-sitter-manager.nvim",
+		dependencies = {}, -- tree-sitter CLI must be installed system-wide
 		config = function()
-			require("nvim-surround").setup({
-				-- Configuration here, or leave empty to use defaults
-			})
+			require("tree-sitter-manager").setup()
 		end,
-	})
+	},
 
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = function()
-			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-			ts_update()
-		end,
-	})
-
-	use({
+	-- consider blink-pairs
+	{
 		"windwp/nvim-autopairs",
-		config = function()
-			require("nvim-autopairs").setup({
-				-- Needs special config to use with cmp
-			})
-		end,
-	})
+		event = "InsertEnter",
+		config = true,
+		-- use opts = {} for passing setup options
+		-- this is equivalent to setup({}) function
+	},
 
-	use({
+	{
 		"nmac427/guess-indent.nvim",
 		config = function()
 			require("guess-indent").setup({})
 		end,
-	})
+	},
 
-	use({
+	{
 		"m4xshen/hardtime.nvim",
-		config = function()
-			require("hardtime").setup({
-				restricted_keys = {
-					["j"] = {},
-					["k"] = {},
-				},
-			})
-		end,
-	})
-
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	if packer_bootstrap then
-		require("packer").sync()
-	end
-end)
+		lazy = false,
+		dependencies = { "MunifTanjim/nui.nvim" },
+		opts = {
+			restricted_keys = {
+				["j"] = {},
+				["k"] = {},
+			},
+		},
+	},
+}

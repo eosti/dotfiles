@@ -16,7 +16,7 @@ require("mason-lspconfig").setup({
 		"texlab",
 		"lua_ls",
 		"marksman",
-		"pylsp",
+		"ruff",
 		"tailwindcss",
 		"yamlls",
 		"jinja_lsp",
@@ -24,42 +24,55 @@ require("mason-lspconfig").setup({
 	automatic_installation = true,
 })
 
--- Setup language servers.
-local lspconfig = require("lspconfig")
-local lsp_defaults = lspconfig.util.default_config
-
-lsp_defaults.capabilities =
-	vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
-
-vim.lsp.config("pylsp", {
-	settings = {
-		pylsp = {
-			plugins = {
-				pycodestyle = {
-					maxLineLength = 999,
+-- Setup language servers
+local lsps = {
+	{ "clangd" },
+	{ "eslint" },
+	{ "astro" },
+	{
+		"ruff",
+		{
+			init_options = {
+				settings = {
+					configurationPreference = "filesystemFirst",
+					linelength = 100,
 				},
 			},
 		},
 	},
-})
-
-vim.lsp.config("lua_ls", {
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { "vim" },
+	{
+		"lua_ls",
+		{
+			settings = {
+				Lua = {
+					diagnostics = {
+						globals = { "vim" },
+					},
+				},
 			},
 		},
 	},
-})
+	{
+		"bashls",
+		{
+			filetypes = { "bash", "sh", "zsh" },
+		},
+	},
+	{
+		"jinja_lsp",
+		{
+			filetypes = { "jinja", "jinja2", "j2" },
+		},
+	},
+}
 
-vim.lsp.config("bashls", {
-	filetypes = { "bash", "sh", "zsh" },
-})
-
-vim.lsp.config("jinja_lsp", {
-	filetypes = { "jinja", "jinja2", "j2" },
-})
+for _, lsp in pairs(lsps) do
+	local name, config = lsp[1], lsp[2]
+	vim.lsp.enable(name)
+	if config then
+		vim.lsp.config(name, config)
+	end
+end
 
 vim.filetype.add({
 	extension = {
@@ -68,10 +81,6 @@ vim.filetype.add({
 		j2 = "jinja",
 	},
 })
-
-vim.lsp.config("clangd", {})
-vim.lsp.config("eslint", {})
-vim.lsp.config("astro", {})
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
