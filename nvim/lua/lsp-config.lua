@@ -17,12 +17,16 @@ require("mason-lspconfig").setup({
 		"lua_ls",
 		"marksman",
 		"ruff",
+		"pyright",
 		"tailwindcss",
 		"yamlls",
 		"jinja_lsp",
 	},
 	automatic_installation = true,
 })
+
+local capabilities = require("blink.cmp").get_lsp_capabilities()
+vim.lsp.config("*", { capabilities = capabilities })
 
 -- Setup language servers
 local lsps = {
@@ -36,6 +40,19 @@ local lsps = {
 				settings = {
 					configurationPreference = "filesystemFirst",
 					linelength = 100,
+				},
+			},
+		},
+	},
+	{
+		"pyright",
+		{
+			settings = {
+				python = {
+					analysis = {
+						typeCheckingMode = "basic",
+						autoImportCompletions = true,
+					},
 				},
 			},
 		},
@@ -118,4 +135,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.lsp.buf.format({ async = true })
 		end, opts)
 	end,
+})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("lsp_attach_disable_ruff_hover", { clear = true }),
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		if client == nil then
+			return
+		end
+		if client.name == "ruff" then
+			-- Disable hover in favor of Pyright
+			client.server_capabilities.hoverProvider = false
+		end
+	end,
+	desc = "LSP: Disable hover capability from Ruff",
 })
