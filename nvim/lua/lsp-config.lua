@@ -21,6 +21,7 @@ require("mason-lspconfig").setup({
 		"tailwindcss",
 		"yamlls",
 		"jinja_lsp",
+		"ty",
 	},
 	automatic_installation = true,
 })
@@ -45,17 +46,21 @@ local lsps = {
 		},
 	},
 	{
-		"pyright",
+		"ty",
 		{
-			settings = {
-				python = {
-					analysis = {
-						typeCheckingMode = "basic",
-						autoImportCompletions = true,
-					},
-				},
-			},
+			settings = {},
 		},
+		-- "pyright",
+		-- {
+		-- 	settings = {
+		-- 		python = {
+		-- 			analysis = {
+		-- 				typeCheckingMode = "basic",
+		-- 				autoImportCompletions = true,
+		-- 			},
+		-- 		},
+		-- 	},
+		-- },
 	},
 	{
 		"lua_ls",
@@ -102,8 +107,8 @@ vim.filetype.add({
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+-- This sets [d and ]d to open the float by default
+vim.diagnostic.config({ jump = { float = true } })
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 
 -- Use LspAttach autocommand to only map the following keys
